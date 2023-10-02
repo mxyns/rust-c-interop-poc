@@ -1,0 +1,9 @@
+**/target
+**/.idea
+**/Cargo.lock
+**/CMakeFiles
+**/cmake-build-debug
+**/*.cmake
+**/CMakeCache.txt
+**/Makefile
+**/*.a

@@ -1,0 +1,7 @@
+[workspace]
+members = [
+    "crates/uwe-rs-bin",
+    "crates/uwe-rs-lib"
+]
+
+resolver = "2"

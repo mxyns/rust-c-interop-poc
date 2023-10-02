@@ -1,0 +1,13 @@
+[package]
+name = "uwe-rs-lib"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+cargo-c = { version = "0.9.24" }
+rand = "0.8.5"
+libc = "0.2.148"
+byteorder = { version = "1.4.3", features = [] }
+
+[features]
+capi = []

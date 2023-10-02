@@ -1,0 +1,2 @@
+apt install llvm-dev libclang-dev clang
+export LIBCLANG_PATH=/usr/local/lib
