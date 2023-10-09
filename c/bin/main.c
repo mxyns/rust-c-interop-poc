@@ -7,8 +7,30 @@
 
 #include "../lib/uwe_c_lib.h"
 
+void show_StructWithOpt(StructWithOpt opt) {
+  if (opt.ptr) {
+    printf("%p -> %u\n", opt.ptr, opt.ptr->x);
+  } else {
+    printf("%p\n", opt.ptr);
+  }
+}
+
 int main() {
-    if (is_uwRae_the_goat()) {
+
+  void* ptr = NULL; // malloc(69);
+  printf("%p\n", ptr);
+
+  StructWithOpt with = make_opt(true);
+  // StructWithOpt without = make_opt(false);
+
+  show_StructWithOpt(with);
+  // show_StructWithOpt(without);
+
+
+
+
+  return 0;
+    if (is_uwe_the_goat()) {
         printf("Yes Uwe is the GOAT\n");
     }
 

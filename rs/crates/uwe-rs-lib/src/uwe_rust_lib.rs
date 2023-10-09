@@ -81,6 +81,44 @@ pub extern "C" fn free_transparent_header(ptr: *mut TransparentHeader) -> bool {
 
         true
     }
+}
 
+#[repr(C)]
+struct ABC { x: u8 }
 
+#[repr(C)]
+pub struct StructWithOpt {
+    ptr: Option<&'static ABC>
+}
+
+#[no_mangle]
+pub extern "C" fn make_opt(with: bool) -> StructWithOpt {
+    StructWithOpt {
+        ptr: if with {
+            // This only works for const static values
+            Some(&ABC { x: 69 })
+        } else {
+            None
+        }
+    }
+}
+
+/*
+
+/// This requires heap allocation
+#[no_mangle]
+pub extern "C" fn make_opt_with_value(with: bool, value: u8) -> StructWithOpt {
+    StructWithOpt {
+        ptr: if with {
+            Some(&ABC { x: value })
+        } else {
+            None
+        }
+    }
+}
+*/
+
+#[no_mangle]
+pub extern "C" fn free_opt(opt: StructWithOpt) {
+    let _ = opt;
 }
